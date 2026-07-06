@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Bunk Calculator — How Many Classes Can You Bunk? (75% Attendance)</title>
+<meta name="description" content="Find out exactly how many classes you can bunk (or need to attend) to hit 75% attendance. Type your numbers, get an instant verdict. No login, no data saved.">
+<meta name="theme-color" content="#0d0f14">
+
+<meta property="og:title" content="Bunk Calculator — How Many Classes Can You Bunk?">
+<meta property="og:description" content="Type your attendance numbers, get an instant bunk-or-attend verdict. 100% client-side, nothing leaves your browser.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎒</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="site-header">
+    <span class="badge">100% client-side</span>
+    <h1>Bunk Calculator</h1>
+    <p class="tagline">figure out how many classes you can skip before your attendance % files a complaint</p>
+  </header>
+
+  <main class="card" id="calc">
+
+    <div class="field">
+      <label for="attended">Classes attended</label>
+      <input type="number" id="attended" inputmode="numeric" min="0" placeholder="e.g. 42" autocomplete="off">
+    </div>
+
+    <div class="field">
+      <label for="total">Total classes held</label>
+      <input type="number" id="total" inputmode="numeric" min="0" placeholder="e.g. 56" autocomplete="off">
+    </div>
+
+    <div class="field">
+      <label>Required attendance %</label>
+      <div class="pill-group" id="reqGroup" role="group" aria-label="Required attendance percentage">
+        <button type="button" class="pill" data-val="70">70%</button>
+        <button type="button" class="pill active" data-val="75">75%</button>
+        <button type="button" class="pill" data-val="80">80%</button>
+        <button type="button" class="pill" data-val="85">85%</button>
+      </div>
+    </div>
+
+    <section class="verdict-box" id="verdictBox" aria-live="polite">
+      <p class="verdict-sub">enter your numbers up there ☝️</p>
+      <p class="verdict-main" id="verdictMain">waiting for data...</p>
+      <p class="current-pct" id="currentPct"></p>
+    </section>
+
+    <div class="share-row">
+      <button type="button" class="share-btn" id="shareBtn">Share on WhatsApp 📲</button>
+      <canvas id="shareCanvas" width="1080" height="1080" class="hidden-canvas"></canvas>
+    </div>
+
+    <p class="privacy-note">🔒 Nothing you type leaves your browser. No login, no tracking, no data stored anywhere.</p>
+
+  </main>
+
+  <section class="faq" aria-labelledby="faq-heading">
+    <h2 id="faq-heading" class="faq-title">FAQ (the stuff everyone asks)</h2>
+
+    <article class="faq-item">
+      <h2>How is attendance percentage calculated?</h2>
+      <p>Simple division, nothing fancy: <strong>(classes attended ÷ total classes held) × 100</strong>. If you've been to 42 out of 56 classes, that's 42/56 × 100 = 75%. Your college isn't hiding some secret formula — it's just math.</p>
+    </article>
+
+    <article class="faq-item">
+      <h2>How many classes can I bunk with 75% attendance?</h2>
+      <p>Depends entirely on your total classes so far — that's exactly what this calculator works out for you. The more classes already held, the more "buffer" you've usually built up, since each future bunk adds to both attended and total in a way that drags your % down. Plug in your numbers above and the tool does the math instantly.</p>
+    </article>
+
+    <article class="faq-item">
+      <h2>What happens if attendance falls below 75%?</h2>
+      <p>Varies by institution, but common outcomes include being barred from sitting exams, getting "detained" for the term, needing to reappear, or facing a fine. Some colleges give a grace window before penalties kick in. Bottom line: check your own institution's rulebook, because "75%" isn't a universal law of physics.</p>
+    </article>
+
+    <article class="faq-item">
+      <h2>Does medical leave count (condonation)?</h2>
+      <p>Often yes, partially — many colleges allow "condonation" where documented medical leave (with a certificate) can be excused or counted separately, sometimes bumping your effective requirement down a few percent. But policies differ a lot between institutions, so this calculator can't account for it automatically. Always double-check with your department or attendance office before assuming you're covered.</p>
+    </article>
+  </section>
+
+  <footer class="site-footer">
+    <p>made for students who do math in their head during roll call · not affiliated with your college's attendance policy</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
